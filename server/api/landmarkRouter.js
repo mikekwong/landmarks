@@ -43,13 +43,10 @@ router.delete('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
-    const city = await City.findById(req.params.id)
-    await city.update({
-      city: req.body.city || city.name,
-      state: req.body.state || city.state
-    })
+    const landmark = await Landmark.findById(req.params.id)
+    await landmark.update(req.body)
 
-    res.json(city)
+    res.json(landmark)
   } catch (err) {
     next(err)
   }
