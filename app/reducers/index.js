@@ -1,18 +1,18 @@
 // `combineReducers` is not currently being used...but it should!
 // When you're ready to use it, un-comment the line below!
 
-import { combineReducers } from 'redux';
-import catsReducer from './catsReducer';
-import selectedCatReducer from './selectedCatReducer';
+import { combineReducers } from 'redux'
+import citiesReducer from './citiesReducer'
+import selectedCityReducer from './cityReducer'
 
 export const initialState = {
-  cats: [],
-  selectedCat: 1
-};
+  city: [],
+  selectedCity: 1
+}
 
 const rootReducer = combineReducers({
-  cats: catsReducer,
-  selectedCat: selectedCatReducer
-});
+  cities: citiesReducer,
+  selectedCity: selectedCityReducer
+})
 
-export default rootReducer;
+export default rootReducer

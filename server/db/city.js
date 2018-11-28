@@ -2,11 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('./database')
 
 const City = db.define('city', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  state: {
+  location: {
     type: Sequelize.STRING,
     allowNull: false
   }

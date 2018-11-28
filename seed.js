@@ -8,28 +8,23 @@ const seed = async () => {
 
   await City.bulkCreate([
     {
-      city: 'New York',
-      state: 'NY'
-    },
-     {
-      city: 'Seattle',
-      state: 'WA'
-    },
-     {
-      city: 'San Francisco',
-      state: 'CA'
-    },
-     {
-      city: 'Boston',
-      state: 'MA'
+      location: 'New York, NY'
     },
     {
-      city: 'Philadelphia',
-      state: 'PA'
+      location: 'Seattle, WA'
+    },
+    {
+      location: 'San Francisco, CA'
+    },
+    {
+      location: 'Boston, MA'
+    },
+    {
+      location: 'Philadelphia, PA'
     }
   ])
 
-   await Landmark.bulkCreate([
+  await Landmark.bulkCreate([
     {
       name: 'Statue of Liberty',
       neighborhood: 'Lower Manhattan',
@@ -77,7 +72,8 @@ const seed = async () => {
       neighborhood: 'Downtown',
       favorite: false,
       imageURL: ''
-    },{
+    },
+    {
       name: 'Coit Tower',
       neighborhood: 'Downtown',
       favorite: false,
@@ -88,8 +84,7 @@ const seed = async () => {
       neighborhood: 'Downtown',
       favorite: false,
       imageURL: ''
-    },
-
+    }
   ])
 
   console.log(green('Seeding success!'))

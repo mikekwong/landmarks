@@ -3,8 +3,8 @@ const { City, Landmark } = require('../db')
 
 router.get('/', async (req, res, next) => {
   try {
-    const cities = await City.findAll()
-    res.json(cities)
+    const landmarks = await Landmark.findAll()
+    res.json(landmarks)
   } catch (err) {
     next(err)
   }
@@ -12,10 +12,10 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const city = await City.findById(req.params.id, {
-      include: [{ model: Landmark }]
+    const landmark = await Landmark.findById(req.params.id, {
+      include: [{ model: City }]
     })
-    res.json(city)
+    res.json(landmark)
   } catch (err) {
     next(err)
   }
@@ -23,8 +23,8 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const city = await City.create(req.body)
-    res.json(city)
+    const landmark = await Landmark.create(req.body)
+    res.json(landmark)
   } catch (err) {
     next(err)
   }
@@ -32,10 +32,10 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    const city = await City.findById(req.params.id)
-    await city.destroy()
+    const landmark = await Landmark.findById(req.params.id)
+    await landmark.destroy()
 
-    res.json(city)
+    res.json(landmark)
   } catch (err) {
     next(err)
   }
@@ -45,7 +45,8 @@ router.put('/:id', async (req, res, next) => {
   try {
     const city = await City.findById(req.params.id)
     await city.update({
-      city: req.body.city || city.name
+      city: req.body.city || city.name,
+      state: req.body.state || city.state
     })
 
     res.json(city)
