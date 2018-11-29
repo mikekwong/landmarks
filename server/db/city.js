@@ -5,6 +5,10 @@ const City = db.define('city', {
   location: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  imageURL: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 })
 

@@ -23,7 +23,12 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const landmark = await Landmark.create(req.body)
+    const landmark = await Landmark.create({
+      name: req.body.name,
+      neighborhood: req.body.neighborhood,
+      favorite: false,
+      imageURL: req.body.imageURL
+    })
     res.json(landmark)
   } catch (err) {
     next(err)
@@ -44,7 +49,12 @@ router.delete('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const landmark = await Landmark.findById(req.params.id)
-    await landmark.update(req.body)
+    await landmark.update({
+      name: req.body.name || landmark.name,
+      neighborhood: req.body.neighborhood || landmark.neighborhood,
+      favorite: req.body.favorite || landmark.neighborhood,
+      imageURL: req.body.imageURL || landmark.imageURL
+    })
 
     res.json(landmark)
   } catch (err) {

@@ -3,7 +3,7 @@
 
 import { combineReducers } from 'redux'
 import citiesReducer from './citiesReducer'
-import selectedCityReducer from './cityReducer'
+import selectedCityReducer from './citiesReducer'
 
 export const initialState = {
   city: [],

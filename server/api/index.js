@@ -5,6 +5,9 @@ const router = require('express').Router()
 const cityRouter = require('./cityRouter')
 router.use('/city', cityRouter)
 
+const landmarkRouter = require('./landmarkRouter')
+router.use('/landmark', landmarkRouter)
+
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
 // You can put all routes in this file HOWEVER,
