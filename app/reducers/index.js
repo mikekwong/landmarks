@@ -3,13 +3,16 @@
 
 import { combineReducers } from 'redux'
 import citiesReducer from './citiesReducer'
+import landmarksReducer from './landmarksReducer'
 
 export const initialState = {
-  cities: []
+  cities: [],
+  landmarks: []
 }
 
 const rootReducer = combineReducers({
-  cities: citiesReducer
+  cities: citiesReducer,
+  landmarks: landmarksReducer
 })
 
 export default rootReducer
