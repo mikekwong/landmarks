@@ -1,23 +1,15 @@
-import React from 'react';
-import CatsList from './CatsList.jsx';
-import CatDetail from './CatDetail.jsx';
-
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import React from 'react'
+import CitiesList from './CitiesList.jsx'
 
 const Root = () => {
   return (
-  	<BrowserRouter>
-	    <div>
-	      <nav>
-	      	<Link to='/cats'>Cats</Link>
-	      </nav>
-	      <main>
-	      	<Route exact path='/cats' component={CatsList} />
-	      	<Route exact path='/cats/:id' component={CatDetail} />
-	      </main>
-	    </div>
-	</BrowserRouter>
-  );
-};
+    <div>
+      <nav>Welcome!</nav>
+      <main>
+        <CitiesList />
+      </main>
+    </div>
+  )
+}
 
-export default Root;
+export default Root
